@@ -79,6 +79,10 @@ az($container->get("kit_admin_generator")->generate($configFile));
 History Log
 =============
 
+- 1.0.1 -- 2019-11-06
+
+    - fix link typo in example
+    
 - 1.0.0 -- 2019-11-06
 
     - initial commit

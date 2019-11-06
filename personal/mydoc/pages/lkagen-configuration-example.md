@@ -3,7 +3,7 @@ Configuration example
 2019-11-06
 
 
-Below is the file I've used to generate parts of the [Light_Kit_Admin](https://github.com/lingtalfi/Light_ControllerHub) plugin itself.
+Below is the file I've used to generate parts of the [Light_Kit_Admin](https://github.com/lingtalfi/Light_Kit_Admin) plugin itself.
 
 We also refer to it as the **configuration block**.
 

@@ -79,6 +79,10 @@ az($container->get("kit_admin_generator")->generate($configFile));
 History Log
 =============
 
+- 1.1.0 -- 2019-11-14
+
+    - update ControllerGenerator, implemented form.use_link_to_list
+
 - 1.0.1 -- 2019-11-06
 
     - fix link typo in example

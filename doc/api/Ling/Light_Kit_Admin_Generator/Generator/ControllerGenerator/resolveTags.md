@@ -53,7 +53,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [ControllerGenerator::resolveTags](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/Generator/ControllerGenerator.php#L207-L210)
+See the source code for method [ControllerGenerator::resolveTags](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/Generator/ControllerGenerator.php#L221-L224)
 
 
 See Also

@@ -433,6 +433,10 @@ main:
         # The class name of the parent controller, which all other classes derive from.
         parent_controller: Ling\Light_Kit_Admin\Controller\AdminPageController
 
+        # Whether to create a link to the corresponding list
+        # The default value is true
+        ?use_link_to_list: true
+
 
 
     # --------------------------------------

@@ -164,6 +164,24 @@ class TheBaseController extends TheParentController
                      * And so if the user changed her avatar for instance, we want her to notice the changes right away.
                      * Hence we redirect to the same page
                      */
+
+
+                    /**
+                    * Also, if it's an update, the ric params are in the $_GET (and in the url), and so if we were just
+                    * refreshing the page (which is what the redirect basically will do) we would have the old ric
+                    * parameters displayed in the form, which is not what we want: we want the refreshed form to
+                    * reflect the newest changes, including changes in the ric.
+                    * So, we just override the ric in $_GET, so that the new page refreshes with the new rics.
+                    */
+                    if (true === $isUpdate) {
+                        foreach ($vid as $k => $v) {
+                            if (in_array($k, $ric, true) && array_key_exists($k, $_GET)) {
+                                $_GET[$k] = $v;
+                            }
+                        }
+                    }
+
+
                     $flasher->addFlash($table, "Congrats, the user form was successfully updated.");
                     $this->redirectByRoute($this->getLight()->getMatchingRoute()['name']);
                 }

@@ -43,9 +43,6 @@ class TheController extends TheBaseController
         $table = "{table}";
         $pluginName = "Light_Kit_Admin"; // used for micro-permissions
         $identifier = "Light_Kit_Admin.generated/{table}";
-
-
-        $form = $this->processForm($identifier, $table, $pluginName);
         $parentLayout = "Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_base";
         $vars = [
             "title" => "{formTitle}",
@@ -53,7 +50,11 @@ class TheController extends TheBaseController
         if (array_key_exists("solo", $_GET)) {
             $parentLayout = "Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_solo";
             $vars['related_links'] = []; // cancel any existing related links
+            $this->setOnSuccessIframeSignal("done");
         }
+
+
+        $form = $this->processForm($identifier, $table, $pluginName);
 
 
         //--------------------------------------------

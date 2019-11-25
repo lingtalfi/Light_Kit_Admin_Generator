@@ -21,6 +21,24 @@ use Ling\WiseTool\WiseTool;
  */
 class TheBaseController extends TheParentController
 {
+
+
+    /**
+    * This property holds the iframeSignal for this instance.
+    * @var string
+    */
+    protected $iframeSignal;
+
+
+    /**
+    * Builds the instance.
+    */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->iframeSignal = null;
+    }
+
     /**
      * Renders a page to interact with a table data.
      *
@@ -34,6 +52,7 @@ class TheBaseController extends TheParentController
         }
         return $this->renderList();
     }
+
 
 
     //--------------------------------------------
@@ -159,31 +178,36 @@ class TheBaseController extends TheParentController
                 // redirect
                 //--------------------------------------------
                 if (true === $formIsHandledSuccessfully) {
-                    /**
-                     * We redirect because the user data is used in the gui (for instance in the icon menu in the header.
-                     * And so if the user changed her avatar for instance, we want her to notice the changes right away.
-                     * Hence we redirect to the same page
-                     */
+                    if (null !== $this->iframeSignal) {
+                        $form->setProperty("iframe-signal", $this->iframeSignal);
+                    } else {
+
+                        /**
+                        * We redirect because the user data is used in the gui (for instance in the icon menu in the header.
+                        * And so if the user changed her avatar for instance, we want her to notice the changes right away.
+                        * Hence we redirect to the same page
+                        */
 
 
-                    /**
-                    * Also, if it's an update, the ric params are in the $_GET (and in the url), and so if we were just
-                    * refreshing the page (which is what the redirect basically will do) we would have the old ric
-                    * parameters displayed in the form, which is not what we want: we want the refreshed form to
-                    * reflect the newest changes, including changes in the ric.
-                    * So, we just override the ric in $_GET, so that the new page refreshes with the new rics.
-                    */
-                    if (true === $isUpdate) {
-                        foreach ($vid as $k => $v) {
-                            if (in_array($k, $ric, true) && array_key_exists($k, $_GET)) {
-                                $_GET[$k] = $v;
+                        /**
+                        * Also, if it's an update, the ric params are in the $_GET (and in the url), and so if we were just
+                        * refreshing the page (which is what the redirect basically will do) we would have the old ric
+                        * parameters displayed in the form, which is not what we want: we want the refreshed form to
+                        * reflect the newest changes, including changes in the ric.
+                        * So, we just override the ric in $_GET, so that the new page refreshes with the new rics.
+                        */
+                        if (true === $isUpdate) {
+                            foreach ($vid as $k => $v) {
+                                if (in_array($k, $ric, true) && array_key_exists($k, $_GET)) {
+                                    $_GET[$k] = $v;
+                                }
                             }
                         }
+
+
+                        $flasher->addFlash($table, "Congrats, the user form was successfully updated.");
+                        $this->redirectByRoute($this->getLight()->getMatchingRoute()['name']);
                     }
-
-
-                    $flasher->addFlash($table, "Congrats, the user form was successfully updated.");
-                    $this->redirectByRoute($this->getLight()->getMatchingRoute()['name']);
                 }
 
             } else {
@@ -222,4 +246,16 @@ class TheBaseController extends TheParentController
         }
         return $form;
     }
+
+
+    /**
+    * Sets the iframeSignal to use in case of a valid form.
+    *
+    * @param string $iframeSignal
+    */
+    public function setOnSuccessIframeSignal(string $iframeSignal)
+    {
+        $this->iframeSignal = $iframeSignal;
+    }
+
 }

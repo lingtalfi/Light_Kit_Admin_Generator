@@ -46,17 +46,24 @@ class TheController extends TheBaseController
 
 
         $form = $this->processForm($identifier, $table, $pluginName);
+        $parentLayout = "Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_base";
+        $vars = [
+            "title" => "{formTitle}",
+        ];
+        if (array_key_exists("solo", $_GET)) {
+            $parentLayout = "Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_solo";
+            $vars['related_links'] = []; // cancel any existing related links
+        }
 
 
         //--------------------------------------------
         // RENDERING
         //--------------------------------------------
         return $this->renderAdminPage('Light_Kit_Admin/kit/zeroadmin/generated/{table}_form', [
+            "parent_layout" => $parentLayout,
             "form" => $form,
-        ], PageConfUpdator::create()->updateWidget("body.chloroform", [
-            'vars' => [
-                'title' => "{formTitle}",
-            ],
+        ], PageConfUpdator::create()->updateWidget("body.lka_chloroform", [
+            'vars' => $vars,
         ]));
     }
 }

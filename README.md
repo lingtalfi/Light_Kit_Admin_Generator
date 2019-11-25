@@ -79,6 +79,10 @@ az($container->get("kit_admin_generator")->generate($configFile));
 History Log
 =============
 
+- 1.2.0 -- 2019-11-25
+
+    - update controller.tpl now accepts a $_GET.solo option 
+    
 - 1.1.1 -- 2019-11-19
 
     - fix baseController.tpl not handling ric update in the url correctly

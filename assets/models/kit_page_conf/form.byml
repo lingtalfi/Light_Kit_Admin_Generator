@@ -1,4 +1,4 @@
-_parent: Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_base
+_parent: ${parent_layout}
 title: {TableLabel} Form
 zones:
     body:

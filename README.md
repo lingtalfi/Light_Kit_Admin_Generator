@@ -79,6 +79,10 @@ az($container->get("kit_admin_generator")->generate($configFile));
 History Log
 =============
 
+- 1.2.1 -- 2019-11-25
+
+    - fix form.byml template not calling the dynamic parent 
+    
 - 1.2.0 -- 2019-11-25
 
     - update controller.tpl now accepts a $_GET.solo option 

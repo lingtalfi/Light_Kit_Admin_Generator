@@ -171,6 +171,20 @@ class TheBaseController extends TheParentController
 
                 } catch (\Exception $e) {
                     $form->addNotification(ErrorFormNotification::create($e->getMessage()));
+
+                    // dispatch the exception (to allow deeper investigation)
+                    /**
+                    * @var $events LightEventsService
+                    */
+                    $events = $this->getContainer()->get("events");
+                    $data = LightEvent::createByContainer($this->getContainer());
+                    $data->setVar('exception', $e);
+                    /**
+                    * Note from the Light_RealGenerator authors: we chose to use our plugin name as the handler
+                    * rather than the host plugin, because it would be more practical for plugins
+                    * like Light_ExceptionHandler (which dispatching below is mainly intended to) to deal with.
+                    */
+                    $events->dispatch("Light_RealGenerator.on_realform_exception_caught", $data);
                 }
 
 

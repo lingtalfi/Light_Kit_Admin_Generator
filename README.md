@@ -79,6 +79,10 @@ az($container->get("kit_admin_generator")->generate($configFile));
 History Log
 =============
 
+- 1.4.0 -- 2019-11-28
+
+    - update baseController template, now dispatches the Light_RealGenerator.on_realform_exception_caught event
+    
 - 1.3.0 -- 2019-11-25
 
     - update controller templates, now handles a basic iframe-signal technique 

@@ -79,6 +79,10 @@ az($container->get("kit_admin_generator")->generate($configFile));
 History Log
 =============
 
+- 1.4.1 -- 2019-11-28
+
+    - fix baseController template missing use dependencies
+    
 - 1.4.0 -- 2019-11-28
 
     - update baseController template, now dispatches the Light_RealGenerator.on_realform_exception_caught event

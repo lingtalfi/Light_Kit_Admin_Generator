@@ -4,6 +4,7 @@
 namespace TheNamespace;
 
 
+use Ling\Bat\UriTool;
 use Ling\Chloroform\Form\Chloroform;
 use Ling\Light\Http\HttpResponseInterface;
 use Ling\Light_Realform\Routine\LightRealformRoutineOne;
@@ -73,7 +74,8 @@ class TheBaseController extends TheParentController
             $options['iframeSignal'] = $this->iframeSignal;
         } else {
             $options['onSuccess'] = function () use ($table) {
-                $this->getFlasher()->addFlash($table, "Congrats, the form was successfully updated.");
+                $this->getFlasher()->addFlash($table, "Congrats, the form was successfully processed.");
+                UriTool::randomize($_GET);
                 $this->redirectByRoute($this->getLight()->getMatchingRoute()['name']);
             };
         }

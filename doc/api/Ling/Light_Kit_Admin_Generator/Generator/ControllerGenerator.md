@@ -4,7 +4,7 @@
 
 The ControllerGenerator class
 ================
-2019-11-06 --> 2019-11-29
+2019-11-06 --> 2019-12-09
 
 
 
@@ -49,6 +49,7 @@ class <span class="pl-k">ControllerGenerator</span> extends [LkaGenBaseConfigGen
     - protected BaseConfigGenerator::setConfig(array $config) : void
     - protected BaseConfigGenerator::getGenericTagsByTable(string $table) : array
     - protected BaseConfigGenerator::getTableWithoutPrefix(string $table) : string
+    - protected BaseConfigGenerator::isHasTable(string $table) : bool
 
 }
 
@@ -70,6 +71,7 @@ Methods
 - BaseConfigGenerator::setConfig &ndash; Sets the [configuration block](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/pages/lkagen-configuration-example.md).
 - BaseConfigGenerator::getGenericTagsByTable &ndash; Returns the array of generic tags (used in the list and form configuration files), based on the given table.
 - BaseConfigGenerator::getTableWithoutPrefix &ndash; Returns the table name without prefix.
+- BaseConfigGenerator::isHasTable &ndash; Returns whether the given table is a **has** table (aka a many to many table, such as user_has_permission for instance).
 
 
 

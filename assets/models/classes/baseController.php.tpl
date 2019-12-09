@@ -75,7 +75,7 @@ class TheBaseController extends TheParentController
         } else {
             $options['onSuccess'] = function () use ($table) {
                 $this->getFlasher()->addFlash($table, "Congrats, the form was successfully processed.");
-                UriTool::randomize($_GET);
+                UriTool::randomize($_GET, '_r');
                 $this->redirectByRoute($this->getLight()->getMatchingRoute()['name']);
             };
         }

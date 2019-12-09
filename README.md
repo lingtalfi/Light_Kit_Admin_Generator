@@ -79,6 +79,10 @@ az($container->get("kit_admin_generator")->generate($configFile));
 History Log
 =============
 
+- 1.5.2 -- 2019-12-09
+
+    - update baseController, now uses fixed _r parameter for UriTool::randomize
+
 - 1.5.1 -- 2019-12-09
 
     - update baseController template change wording of success message and use UriTool::randomize

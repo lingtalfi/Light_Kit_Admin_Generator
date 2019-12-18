@@ -41,7 +41,6 @@ class TheController extends TheBaseController
     {
 
         $table = "{table}";
-        $pluginName = "Light_Kit_Admin"; // used for micro-permissions
         $identifier = "Light_Kit_Admin.generated/{table}";
         $parentLayout = "Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_base";
         $vars = [
@@ -54,7 +53,7 @@ class TheController extends TheBaseController
         }
 
 
-        $form = $this->processForm($identifier, $table, $pluginName);
+        $form = $this->processForm($identifier, $table);
 
 
         //--------------------------------------------

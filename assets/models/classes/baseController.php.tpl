@@ -60,11 +60,10 @@ class TheBaseController extends TheParentController
     *
     * @param string $realformIdentifier
     * @param string $table
-    * @param string $pluginName
     * @return Chloroform
     * @throws \Exception
     */
-    protected function processForm(string $realformIdentifier, string $table, string $pluginName): Chloroform
+    protected function processForm(string $realformIdentifier, string $table): Chloroform
     {
 
         $routineOne = new LightRealformRoutineOne();
@@ -79,7 +78,7 @@ class TheBaseController extends TheParentController
                 $this->redirectByRoute($this->getLight()->getMatchingRoute()['name']);
             };
         }
-        $form = $routineOne->processForm($realformIdentifier, $table, $pluginName, $options);
+        $form = $routineOne->processForm($realformIdentifier, $table, $options);
         return $form;
     }
 

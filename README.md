@@ -79,6 +79,10 @@ az($container->get("kit_admin_generator")->generate($configFile));
 History Log
 =============
 
+- 1.6.0 -- 2019-12-18
+
+    - update to accommodate Light_MicroPermission 2.0
+    
 - 1.5.2 -- 2019-12-09
 
     - update baseController, now uses fixed _r parameter for UriTool::randomize

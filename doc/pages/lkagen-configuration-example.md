@@ -309,6 +309,13 @@ main:
         # Whether to group the menu items by table prefix. Defaults to true.
         ?group_by_prefix: true
 
+        # The prefix for the id of the menu item of type parent, default to "lka_gen"
+        ?item_prefix_parent: lka_gen
+
+        # The prefix for the id of the menu item of type child (aka leaf), default to "lkagen_id"
+        ?item_prefix_child: lkagen_id
+
+
         # An array of prefix => label.
         # The prefixes are stripped from the table name to create human readable labels.
         # The prefixes are also used to group the menu items together (if group_by_prefix=true).

@@ -36,6 +36,8 @@ class MenuConfigGenerator extends LkaGenBaseConfigGenerator
         $groupByPrefix = $this->getKeyValue("menu.group_by_prefix", false, true);
         $prefix2Rights = $this->getKeyValue("menu.prefix_to_rights", false, []);
 
+        $menuItemPrefixParent = $this->getKeyValue("menu.item_prefix_parent", false, "lka_gen");
+        $menuItemPrefixChild = $this->getKeyValue("menu.item_prefix_child", false, "lkagen_id");
 
         $bundle = [
             "prefixes" => $prefixes,
@@ -43,6 +45,7 @@ class MenuConfigGenerator extends LkaGenBaseConfigGenerator
             "customItems" => $customItems,
             "prefix2Rights" => $prefix2Rights,
             "controllerFormat" => $controllerFormat,
+            "itemPrefix" => $menuItemPrefixChild,
         ];
 
         //--------------------------------------------
@@ -77,7 +80,7 @@ class MenuConfigGenerator extends LkaGenBaseConfigGenerator
             }
             $parentLabel = $prefixes[$prefix] ?? ucfirst(strtolower($prefix));
             $parentItem = [
-                'id' => 'lka_gen-' . $prefix,
+                'id' => $menuItemPrefixParent . '-' . $prefix,
                 'icon' => 'fas fa-bars',
                 'text' => $parentLabel,
                 'route' => null,
@@ -127,6 +130,7 @@ class MenuConfigGenerator extends LkaGenBaseConfigGenerator
         $customItems = $configBundle['customItems'];
         $prefix2Rights = $configBundle['prefix2Rights'];
         $controller = $configBundle['controllerFormat'];
+        $itemPrefix = $configBundle['itemPrefix'];
 
 
         /**
@@ -159,7 +163,7 @@ class MenuConfigGenerator extends LkaGenBaseConfigGenerator
         }
 
         $item = [
-            'id' => 'lkagen_id-' . $table,
+            'id' => $itemPrefix . '-' . $table,
             'icon' => 'fas fa-asterisk',
             'text' => $defaultLabel,
             'route' => $hubs->getRouteName(),

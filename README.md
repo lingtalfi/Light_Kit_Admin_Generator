@@ -1,6 +1,6 @@
 Light_Kit_Admin_Generator
 ===========
-2019-11-06
+2019-11-06 -> 2020-02-25
 
 
 
@@ -79,6 +79,10 @@ az($container->get("kit_admin_generator")->generate($configFile));
 History Log
 =============
 
+- 1.7.0 -- 2020-02-25
+
+    - update MenuConfigGenerator->generate, now accepts item_prefix_parent and item_prefix_child options
+    
 - 1.6.0 -- 2019-12-18
 
     - update to accommodate Light_MicroPermission 2.0

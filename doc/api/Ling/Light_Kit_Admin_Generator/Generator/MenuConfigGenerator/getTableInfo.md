@@ -67,7 +67,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [MenuConfigGenerator::getTableInfo](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/Generator/MenuConfigGenerator.php#L122-L179)
+See the source code for method [MenuConfigGenerator::getTableInfo](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/Generator/MenuConfigGenerator.php#L125-L183)
 
 
 See Also

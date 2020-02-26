@@ -23,7 +23,7 @@ class TheController extends TheBaseController
      */
     public function renderList()
     {
-        return $this->renderAdminPage('Light_Kit_Admin/kit/zeroadmin/generated/{table}_list', [], PageConfUpdator::create()->updateWidget("body.light_realist", [
+        return $this->renderAdminPage('{list_page}', [], PageConfUpdator::create()->updateWidget("body.light_realist", [
             'vars' => [
                 'request_declaration_id' => '{request_declaration_id}',
             ],
@@ -41,7 +41,7 @@ class TheController extends TheBaseController
     {
 
         $table = "{table}";
-        $identifier = "Light_Kit_Admin.generated/{table}";
+        $identifier = "{form_identifier}";
         $parentLayout = "Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_base";
         $vars = [
             "title" => "{formTitle}",
@@ -59,7 +59,7 @@ class TheController extends TheBaseController
         //--------------------------------------------
         // RENDERING
         //--------------------------------------------
-        return $this->renderAdminPage('Light_Kit_Admin/kit/zeroadmin/generated/{table}_form', [
+        return $this->renderAdminPage('{form_page}', [
             "parent_layout" => $parentLayout,
             "form" => $form,
         ], PageConfUpdator::create()->updateWidget("body.lka_chloroform", [

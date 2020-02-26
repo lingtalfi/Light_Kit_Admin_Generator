@@ -79,6 +79,11 @@ az($container->get("kit_admin_generator")->generate($configFile));
 History Log
 =============
 
+- 1.9.0 -- 2020-02-26
+
+    - update assets/models/classes/baseController.php.tpl, now use abstract class
+    - update config, add controller.controller_vars
+    
 - 1.8.0 -- 2020-02-26
 
     - update MenuConfigGenerator->generate, now accepts item_plugin and item_default_right options

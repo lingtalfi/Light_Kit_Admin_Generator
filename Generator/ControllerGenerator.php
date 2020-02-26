@@ -42,7 +42,7 @@ class ControllerGenerator extends LkaGenBaseConfigGenerator
         $customControllerClassName = $this->getKeyValue("controller.custom_controller_classname", false, null);
         $baseControllerClassName = $this->getKeyValue("controller.base_controller_classname");
         $parentController = $this->getKeyValue("controller.parent_controller");
-        $requestDeclarationIdFmt = $this->getKeyValue("controller.realist_request_declaration_id_format");
+        $controllerVars = $this->getKeyValue("controller.controller_vars");
         $formTitle = $this->getKeyValue("form.title", false, "{Label} form");
         $formUseLinkToList = $this->getKeyValue("form.use_link_to_list", false, true);
 
@@ -53,6 +53,14 @@ class ControllerGenerator extends LkaGenBaseConfigGenerator
         $tplFormConf = file_get_contents(__DIR__ . "/../assets/models/kit_page_conf/form.byml");
         $tplListConf = file_get_contents(__DIR__ . "/../assets/models/kit_page_conf/list.byml");
         //--------------------------------------------
+
+        $requestDeclarationIdFmt = $controllerVars['realist_request_declaration_id_format'] ?? 'Light_Kit_Admin:generated/{table}';
+        $listPageFmt = $controllerVars['list_page_format'] ?? 'Light_Kit_Admin/kit/zeroadmin/generated/{table}_list';
+        $formIdentifierFmt = $controllerVars['form_identifier_format'] ?? 'Light_Kit_Admin.generated/{table}';
+        $formPageFmt = $controllerVars['form_page_format'] ?? 'Light_Kit_Admin/kit/zeroadmin/generated/{table}_form';
+        $formConfigPathFmt = $controllerVars['form_config_path_format'] ?? 'config/data/Light_Kit_Admin/kit/zeroadmin/generated/{table}_form.byml';
+        $listConfigPathFmt = $controllerVars['list_config_path_format'] ?? 'config/data/Light_Kit_Admin/kit/zeroadmin/generated/{table}_list.byml';
+
 
 
         foreach ($tables as $table) {
@@ -103,6 +111,21 @@ class ControllerGenerator extends LkaGenBaseConfigGenerator
             $requestDeclarationId = str_replace('{table}', $table, $requestDeclarationIdFmt);
             $requestDeclarationId = str_replace('{tableNoPrefix}', $tableNoPrefix, $requestDeclarationId);
 
+            $controllerListPage = str_replace('{table}', $table, $listPageFmt);
+            $controllerListPage = str_replace('{tableNoPrefix}', $tableNoPrefix, $controllerListPage);
+
+            $formIdentifier = str_replace('{table}', $table, $formIdentifierFmt);
+            $formIdentifier = str_replace('{tableNoPrefix}', $tableNoPrefix, $formIdentifier);
+
+            $formPage = str_replace('{table}', $table, $formPageFmt);
+            $formPage = str_replace('{tableNoPrefix}', $tableNoPrefix, $formPage);
+
+            $formConfigPath = str_replace('{table}', $table, $formConfigPathFmt);
+            $formConfigPath = str_replace('{tableNoPrefix}', $tableNoPrefix, $formConfigPath);
+
+            $listConfigPath = str_replace('{table}', $table, $listConfigPathFmt);
+            $listConfigPath = str_replace('{tableNoPrefix}', $tableNoPrefix, $listConfigPath);
+
 
             $theFormTitle = $formTitle;
             $genericTags = $this->getGenericTagsByTable($table);
@@ -121,6 +144,9 @@ class ControllerGenerator extends LkaGenBaseConfigGenerator
             $_tplController = str_replace('{TableLabel}', $TableLabel, $_tplController);
             $_tplController = str_replace('{table}', $table, $_tplController);
             $_tplController = str_replace('{request_declaration_id}', $requestDeclarationId, $_tplController);
+            $_tplController = str_replace('{list_page}', $controllerListPage, $_tplController);
+            $_tplController = str_replace('{form_identifier}', $formIdentifier, $_tplController);
+            $_tplController = str_replace('{form_page}', $formPage, $_tplController);
             $_tplController = str_replace('{formTitle}', $theFormTitle, $_tplController);
             $f = $classRootDir . "/" . str_replace('\\', '/', $resolvedControllerClassName) . ".php";
             FileSystemTool::mkfile($f, $_tplController);
@@ -169,8 +195,8 @@ EEE;
                 '{TableLabel}' => $TableLabel,
                 '{Table}' => $Table,
             ];
-            $pathForm = $appDir . "/config/data/Light_Kit_Admin/kit/zeroadmin/generated/${table}_form.byml";
-            $pathList = $appDir . "/config/data/Light_Kit_Admin/kit/zeroadmin/generated/${table}_list.byml";
+            $pathForm = $appDir . "/" . $formConfigPath;
+            $pathList = $appDir . "/" . $listConfigPath;
             $_tplFormConf = $this->resolveTags($tplFormConf, $kitTags);
             $_tplListConf = $this->resolveTags($tplListConf, $kitTags);
             FileSystemTool::mkfile($pathForm, $_tplFormConf);

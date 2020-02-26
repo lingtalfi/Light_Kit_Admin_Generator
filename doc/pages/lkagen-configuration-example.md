@@ -432,12 +432,49 @@ main:
         # - {app_dir}: the path to the application directory
         class_root_dir: {app_dir}/universe
 
-        # The realist request declaration id to call from the controller.
-        # This setting should synced with the list.target_dir setting in this file.
+        # For all following variables,
         # The following tags are available:
         # - {table}
         # - {tableNoPrefix}
-        realist_request_declaration_id_format: {$plugin}:generated/{table}
+        controller_vars:
+            # The realist request declaration id to call from the controller.
+            # This setting should synced with the list.target_dir setting in this file.
+            # The default value is:
+            #   Light_Kit_Admin:generated/{table}
+            realist_request_declaration_id_format: '{$plugin}:generated/{table}'
+
+            # The kit page to call when rendering the list
+            # The default value is:
+            #   Light_Kit_Admin/kit/zeroadmin/generated/{table}_list
+            list_page_format: '{$plugin}/kit/zeroadmin/generated/{table}_list'
+
+            # The form identifier to call to process the form when the form page is rendered
+            # The default value is:
+            #   Light_Kit_Admin.generated/{table}
+            form_identifier_format: '{$plugin}.generated/{table}'
+
+            # The kit page to call when rendering the form
+            # The default value is:
+            #   Light_Kit_Admin/kit/zeroadmin/generated/{table}_form
+            form_page_format: '{$plugin}/kit/zeroadmin/generated/{table}_form'
+
+            # The relative path from the app dir to the form configuration file
+            # Defaults to: config/data/Light_Kit_Admin/kit/zeroadmin/generated/{table}_form.byml
+            # The following extra tags are available:
+            #   - relatedLinks
+            #   - tableLabel
+            #   - TableLabel
+            #   - Table
+            form_config_path_format: config/data/{$plugin}/kit/zeroadmin/generated/{table}_form.byml
+
+            # The relative path from the app dir to the list configuration file
+            # Defaults to: config/data/Light_Kit_Admin/kit/zeroadmin/generated/{table}_list.byml
+            # The following extra tags are available:
+            #   - relatedLinks
+            #   - tableLabel
+            #   - TableLabel
+            #   - Table
+            list_config_path_format: config/data/{$plugin}/kit/zeroadmin/generated/{table}_list.byml
 
         # Bool, whether to generate the custom controllers.
         # The default value is false.

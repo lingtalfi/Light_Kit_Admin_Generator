@@ -14,7 +14,7 @@ use Ling\Light_Realform\Routine\LightRealformRoutineOne;
 /**
  * The TheBaseController class.
  */
-class TheBaseController extends TheParentController
+abstract class TheBaseController extends TheParentController
 {
 
 

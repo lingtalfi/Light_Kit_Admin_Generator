@@ -1,6 +1,6 @@
 Light_Kit_Admin_Generator
 ===========
-2019-11-06 -> 2020-02-25
+2019-11-06 -> 2020-02-26
 
 
 
@@ -79,6 +79,10 @@ az($container->get("kit_admin_generator")->generate($configFile));
 History Log
 =============
 
+- 1.8.0 -- 2020-02-26
+
+    - update MenuConfigGenerator->generate, now accepts item_plugin and item_default_right options
+    
 - 1.7.0 -- 2020-02-25
 
     - update MenuConfigGenerator->generate, now accepts item_prefix_parent and item_prefix_child options

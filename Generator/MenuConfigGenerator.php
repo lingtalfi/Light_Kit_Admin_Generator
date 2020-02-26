@@ -38,6 +38,8 @@ class MenuConfigGenerator extends LkaGenBaseConfigGenerator
 
         $menuItemPrefixParent = $this->getKeyValue("menu.item_prefix_parent", false, "lka_gen");
         $menuItemPrefixChild = $this->getKeyValue("menu.item_prefix_child", false, "lkagen_id");
+        $menuItemPlugin = $this->getKeyValue("menu.item_plugin", false, "Light_Kit_Admin");
+        $menuItemDefaultRight = $this->getKeyValue("menu.item_default_right", false, "Light_Kit_Admin.user");
 
         $bundle = [
             "prefixes" => $prefixes,
@@ -46,6 +48,8 @@ class MenuConfigGenerator extends LkaGenBaseConfigGenerator
             "prefix2Rights" => $prefix2Rights,
             "controllerFormat" => $controllerFormat,
             "itemPrefix" => $menuItemPrefixChild,
+            "plugin" => $menuItemPlugin,
+            "defaultRight" => $menuItemDefaultRight,
         ];
 
         //--------------------------------------------
@@ -114,6 +118,9 @@ class MenuConfigGenerator extends LkaGenBaseConfigGenerator
      * - customItems
      * - prefix2Rights
      * - controllerFormat
+     * - itemPrefix
+     * - plugin
+     * - defaultRight
      *
      *
      *
@@ -131,6 +138,8 @@ class MenuConfigGenerator extends LkaGenBaseConfigGenerator
         $prefix2Rights = $configBundle['prefix2Rights'];
         $controller = $configBundle['controllerFormat'];
         $itemPrefix = $configBundle['itemPrefix'];
+        $menuPlugin = $configBundle['plugin'];
+        $itemDefaultRight = $configBundle['defaultRight'];
 
 
         /**
@@ -157,7 +166,7 @@ class MenuConfigGenerator extends LkaGenBaseConfigGenerator
 
 
         $defaultLabel = $this->getDefaultLabel($tableWithoutPrefix, $hasKeywords);
-        $defaultRight = 'Light_Kit_Admin.user';
+        $defaultRight = $itemDefaultRight;
         if (null !== $thePrefix && array_key_exists($thePrefix, $prefix2Rights)) {
             $defaultRight = $prefix2Rights[$thePrefix];
         }
@@ -168,7 +177,7 @@ class MenuConfigGenerator extends LkaGenBaseConfigGenerator
             'text' => $defaultLabel,
             'route' => $hubs->getRouteName(),
             'route_url_params' => [
-                "plugin" => "Light_Kit_Admin",
+                "plugin" => $menuPlugin,
                 "controller" => $controller,
             ],
             '_right' => $defaultRight,

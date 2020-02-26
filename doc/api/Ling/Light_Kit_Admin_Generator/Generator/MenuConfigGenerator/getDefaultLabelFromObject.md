@@ -51,7 +51,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [MenuConfigGenerator::getDefaultLabelFromObject](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/Generator/MenuConfigGenerator.php#L195-L198)
+See the source code for method [MenuConfigGenerator::getDefaultLabelFromObject](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/Generator/MenuConfigGenerator.php#L204-L207)
 
 
 See Also

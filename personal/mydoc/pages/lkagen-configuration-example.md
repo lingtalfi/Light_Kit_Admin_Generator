@@ -14,6 +14,14 @@ The comments in it are part of this plugin documentation.
 
 ```yaml
 main:
+    
+    # Use this to define your custom variables that you can re-use later in this same configuration.
+    # To use a variable you've defined here, use the {$variableName} notation
+    variables: 
+        plugin: Light_Kit_Admin
+
+
+
     # This is optional. Under the hood, the real generator uses the Light_Database plugin to interact with the database,
     # and so the default value will be the one defined by the Light_Database plugin.
     ?database_name: jindemo
@@ -24,7 +32,7 @@ main:
     # - as the plugin name in rendering.list_renderer.identifier (list)
     # - as the plugin name in plugin (described in the miscellaneous "section" of the realist conception notes)
     # - as the micro permission plugin name for the on_success_handler (form) of type database
-    plugin_name: Light_Kit_Admin
+    plugin_name: {$plugin}
 
 
 
@@ -68,7 +76,7 @@ main:
         # The target_dir is the path of the dir where to generate the files
         # It's an absolute path.
         # The tag {app_dir} can be used, and will be replaced with the actual "application root directory".
-        target_dir: {app_dir}/config/data/Light_Kit_Admin/Light_Realist/generated
+        target_dir: {app_dir}/config/data/{$plugin}/Light_Realist/generated
 
         # The title of the list, defaults to:
         # - {Label} list
@@ -178,7 +186,7 @@ main:
         related_links:
             -
                 text: Add new {label}
-                url: REALIST(Light_Realist, route, lch_route-hub, {plugin: Light_Kit_Admin, controller: Generated/{TableClass}Controller, m:f})
+                url: REALIST(Light_Realist, route, lch_route-hub, {plugin: {$plugin}, controller: Generated/{TableClass}Controller, m:f})
                 icon: fas fa-plus-circle
 
     # This section defines the behaviour of the form configuration file generator
@@ -193,7 +201,7 @@ main:
         # The target_dir is the path of the dir where to generate the files
         # It's an absolute path.
         # The tag {app_dir} can be used, and will be replaced with the actual "application root directory".
-        target_dir: {app_dir}/config/data/Light_Kit_Admin/Light_Realform/generated
+        target_dir: {app_dir}/config/data/{$plugin}/Light_Realform/generated
 
 
         # This array let you ignore/skip columns that you want to exclude from the generated form config file.
@@ -292,7 +300,7 @@ main:
         # The target_file is the path of the file to generate.
         # It's an absolute path.
         # The tag {app_dir} can be used, and will be replaced with the actual "application root directory".
-        target_file: {app_dir}/config/data/Light_Kit_Admin/bmenu/main_menu/generated/lka_mainmenu_generated_1.byml
+        target_file: {app_dir}/config/data/{$plugin}/bmenu/main_menu/generated/lka_mainmenu_generated_1.byml
 
 
         # By default, we generate routes using the controller_hub service (to avoid having too many routes).
@@ -315,6 +323,14 @@ main:
         # The prefix for the id of the menu item of type child (aka leaf), default to "lkagen_id"
         ?item_prefix_child: lkagen_id
 
+        # The name of the plugin used to handle the link to the menu item
+        item_plugin: {$plugin}
+
+        # The default right assigned to that menu item.
+        # This is overridden by the "prefix_to_rights" option if set (see below for more details).
+        ?item_default_right: {$plugin}.user        
+        
+
 
         # An array of prefix => label.
         # The prefixes are stripped from the table name to create human readable labels.
@@ -329,7 +345,7 @@ main:
         # Note: the value defined here can be overridden with the "items" option (see below).
         # Note2: the default right value used by the generator on any menu item is "Light_Kit_Admin.user".
         ?prefix_to_rights:
-            lud: Light_Kit_Admin.user
+            lud: {$plugin}.user
 
 
         # An array of has keyword => has label.
@@ -421,24 +437,24 @@ main:
         # The following tags are available:
         # - {table}
         # - {tableNoPrefix}
-        realist_request_declaration_id_format: Light_Kit_Admin:generated/{table}
+        realist_request_declaration_id_format: {$plugin}:generated/{table}
 
         # Bool, whether to generate the custom controllers.
         # The default value is false.
         ?use_custom_controller: true
 
         # The class name of the controller to generate.
-        controller_classname: Ling\Light_Kit_Admin\Controller\Generated\{Table}Controller
+        controller_classname: Ling\{$plugin}\Controller\Generated\{Table}Controller
 
         # The class name of the custom controller to generate.
         # This is mandatory only if the use_custom_controller setting is set to true.
-        ?custom_controller_classname: Ling\Light_Kit_Admin\Controller\Generated\Custom\Custom{Table}Controller
+        ?custom_controller_classname: Ling\{$plugin}\Controller\Generated\Custom\Custom{Table}Controller
 
         # The class name of the base controller to generate.
-        base_controller_classname: Ling\Light_Kit_Admin\Controller\Generated\Base\RealGenController
+        base_controller_classname: Ling\{$plugin}\Controller\Generated\Base\RealGenController
 
         # The class name of the parent controller, which all other classes derive from.
-        parent_controller: Ling\Light_Kit_Admin\Controller\AdminPageController
+        parent_controller: Ling\{$plugin}\Controller\AdminPageController
 
         # Whether to create a link to the corresponding list
         # The default value is true
@@ -460,7 +476,7 @@ main:
 #        ?route_prefix: lkagen_route
 #
 #        # The target file is where to create the routes
-#        target_file: {app_dir}/config/data/Light_Kit_Admin/Light_EasyRoute/lkagen_routes.byml
+#        target_file: {app_dir}/config/data/{$plugin}/Light_EasyRoute/lkagen_routes.byml
 #
 #
 #        # The pattern for the list route

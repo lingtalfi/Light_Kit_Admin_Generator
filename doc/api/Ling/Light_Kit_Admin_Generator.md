@@ -1,6 +1,6 @@
 Ling/Light_Kit_Admin_Generator
 ================
-2019-11-06 --> 2020-02-26
+2019-11-06 --> 2020-02-28
 
 
 
@@ -31,8 +31,8 @@ Table of contents
 
 Dependencies
 ============
-- [Bat](https://github.com/lingtalfi/Bat)
 - [BabyYaml](https://github.com/lingtalfi/BabyYaml)
+- [Bat](https://github.com/lingtalfi/Bat)
 - [Light_RealGenerator](https://github.com/lingtalfi/Light_RealGenerator)
 - [Light_ControllerHub](https://github.com/lingtalfi/Light_ControllerHub)
 

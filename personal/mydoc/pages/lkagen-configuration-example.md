@@ -73,6 +73,15 @@ main:
     #       More info about pascal case here: https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md#pascalcase
     list:
 
+
+        # The name of the plugin who handles the list actions. By default, it's the plugin name defined with the
+        # plugin_name option (at the root level of this file).
+        ?list_action_groups_plugin_name: Light_Kit_Admin
+
+        # The name of the plugin who handles the list general actions. By default, it's the plugin name defined with the
+        # plugin_name option (at the root level of this file).
+        ?list_general_actions_plugin_name: Light_Kit_Admin
+
         # The target_dir is the path of the dir where to generate the files
         # It's an absolute path.
         # The tag {app_dir} can be used, and will be replaced with the actual "application root directory".
@@ -91,6 +100,55 @@ main:
 
         # Whether to use the action column (added to every row). Defaults to true.
         ?use_action_column: true
+
+
+        # Whether to use the cross columns on foreign keys
+        # See more about cross columns in https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/crossed-column.md
+        use_cross_columns: true
+
+        # A string representing how to display the foreign key in the cross column.
+        # Only used if use_cross_columns=true.
+        # The following tags are available:
+        # - $fk: the name of the foreign key column (prefix with an alias)
+        # - $rc: the name of the representative column (prefixed with an alias)
+        # The default value is
+        # - concat($fk, '. ', $rc)
+        cross_column_fk_format: concat($fk, '. ', $rc)
+
+        # A string used to generate the value of a parameter for the Light_Realist.hub_link column transformer,
+        # which is a built-in transformer provided by Light_Realist.
+        # This is used to create a link out of the cross column.
+        #
+        # See more about the column transformer in: https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/realist-conception-notes.md#types-the-column-transformers
+        # See more about the cross columns in: https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/crossed-column.md
+        #
+        # In particular, the url_params.controller value is generated from this option.
+        # See the BaseRealistRowsRenderer implementation for more details: https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/BaseRealistRowsRenderer.md
+        # The following tags are available:
+        # - {Table}: the referenced table name is pascal case (https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md#pascalcase).
+        # The default value is:
+        # - Generated/{Table}Controller
+        #
+        cross_column_hub_link_controller_format: Generated/{Table}Controller
+
+        # An array of tablePrefix => pluginName, used to generate the plugin parameter of the in the built-in Light_Realist.hub_link column transformer for cross columns.
+        # By default it's an empty array, which means the current plugin will be always used.
+        cross_column_hub_link_table_prefix_2_plugin: []
+            lud: Light_Kit_Admin
+
+
+
+        # An array of common representative column names.
+        # Only used if use_cross_columns=true.
+        # The default value is an array containing the following:
+        # - name
+        # - label
+        # - identifier
+        # If you define this array, it overrides the value entirely (i.e. it's not merged with the default values, but
+        # will rather replace them).
+        # More info about representatives in https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/pages/conception-notes.md#the-representative-column
+        common_representative_matches:
+            - pseudo
 
         # The name of the action column (only if use_action_column=true). Defaults to "action".
         # Tip: the default value is set by the LightRealistService->executeRequestById method.
@@ -461,7 +519,6 @@ main:
             # The relative path from the app dir to the form configuration file
             # Defaults to: config/data/Light_Kit_Admin/kit/zeroadmin/generated/{table}_form.byml
             # The following extra tags are available:
-            #   - relatedLinks
             #   - tableLabel
             #   - TableLabel
             #   - Table
@@ -470,11 +527,23 @@ main:
             # The relative path from the app dir to the list configuration file
             # Defaults to: config/data/Light_Kit_Admin/kit/zeroadmin/generated/{table}_list.byml
             # The following extra tags are available:
-            #   - relatedLinks
             #   - tableLabel
             #   - TableLabel
             #   - Table
             list_config_path_format: config/data/{$plugin}/kit/zeroadmin/generated/{table}_list.byml
+
+            # An array of related links to add to all the generated form kit page conf.
+            # The default value is basically the array below, except that the plugin is replaced with Light_Kit_Admin.
+            # The following extra tags are available:
+            #   - tableLabel
+            #   - TableLabel
+            #   - Table
+            form_page_related_links:
+                -
+                    text: See the list of "{TableLabel}" items
+                    url: (::ROUTE::)lch_route-hub::{plugin: {$plugin}, controller: Generated/{Table}Controller}
+                    icon: fas fa-plus-circle
+
 
         # Bool, whether to generate the custom controllers.
         # The default value is false.

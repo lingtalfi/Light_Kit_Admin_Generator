@@ -3,8 +3,10 @@
 
 namespace Ling\Light_Kit_Admin_Generator\Generator;
 
+use Ling\BabyYaml\BabyYamlUtil;
 use Ling\Bat\CaseTool;
 use Ling\Bat\FileSystemTool;
+use Ling\Bat\StringTool;
 
 /**
  * The ControllerGenerator class.
@@ -60,7 +62,7 @@ class ControllerGenerator extends LkaGenBaseConfigGenerator
         $formPageFmt = $controllerVars['form_page_format'] ?? 'Light_Kit_Admin/kit/zeroadmin/generated/{table}_form';
         $formConfigPathFmt = $controllerVars['form_config_path_format'] ?? 'config/data/Light_Kit_Admin/kit/zeroadmin/generated/{table}_form.byml';
         $listConfigPathFmt = $controllerVars['list_config_path_format'] ?? 'config/data/Light_Kit_Admin/kit/zeroadmin/generated/{table}_list.byml';
-
+        $formPageRelatedLinks = $controllerVars['form_page_related_links'] ?? null;
 
 
         foreach ($tables as $table) {
@@ -180,21 +182,29 @@ class ControllerGenerator extends LkaGenBaseConfigGenerator
              */
             $sRelatedLinks = '';
             if (true === $formUseLinkToList) {
-                $sRelatedLinks .= PHP_EOL . <<<EEE
-                    -
-                        text: See the list of "{TableLabel}" items
-                        url: (::ROUTE::)lch_route-hub::{plugin: Light_Kit_Admin, controller: Generated/{Table}Controller}
-                        icon: fas fa-plus-circle
-EEE;
+                if (null === $formPageRelatedLinks) {
+                    $formPageRelatedLinks = [
+                        [
+                            'text' => 'See the list of "{TableLabel}" items',
+                            'url' => '(::ROUTE::)lch_route-hub::{plugin: Light_Kit_Admin, controller: Generated/{Table}Controller}',
+                            'icon' => 'fas fa-plus-circle',
+                        ],
+                    ];
+                }
 
+                $sRelatedLinks = StringTool::indent(PHP_EOL . BabyYamlUtil::getBabyYamlString($formPageRelatedLinks), 20);
             }
+
             $kitTags = [
-                // put the related links first, as they can use the following tags
+                // put the related links first, as they can use the following tags, this is just for form though (lazy me...)
                 '{relatedLinks}' => $sRelatedLinks,
                 '{tableLabel}' => $tableLabel,
                 '{TableLabel}' => $TableLabel,
                 '{Table}' => $Table,
             ];
+
+
+
             $pathForm = $appDir . "/" . $formConfigPath;
             $pathList = $appDir . "/" . $listConfigPath;
             $_tplFormConf = $this->resolveTags($tplFormConf, $kitTags);

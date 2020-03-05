@@ -1,6 +1,6 @@
 Light_Kit_Admin_Generator
 ===========
-2019-11-06 -> 2020-02-28
+2019-11-06 -> 2020-03-05
 
 
 
@@ -79,6 +79,10 @@ az($container->get("kit_admin_generator")->generate($configFile));
 History Log
 =============
 
+- 1.11.0 -- 2020-03-05
+
+    - update controller.php.tpl, now uses row restriction service
+    
 - 1.10.0 -- 2020-02-28
 
     - add new config properties, such as form_page_related_links

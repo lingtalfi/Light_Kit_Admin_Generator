@@ -6,6 +6,7 @@ namespace TheNamespace;
 
 use Ling\Light\Http\HttpResponseInterface;
 use Ling\Light_Kit\PageConfigurationUpdator\PageConfUpdator;
+use Ling\Light_UserRowRestriction\Service\LightUserRowRestrictionService;
 //->use
 
 
@@ -52,7 +53,7 @@ class TheController extends TheBaseController
             $this->setOnSuccessIframeSignal("done");
         }
 
-
+        LightUserRowRestrictionService::$mode = LightUserRowRestrictionService::MODE_STRICT;
         $form = $this->processForm($identifier, $table);
 
 

@@ -98,6 +98,13 @@ main:
         # https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/realist-conception-notes.md#miscellaneous
         ?use_micro_permission: true
 
+        # The row restriction mode (https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/doc/pages/conception-notes.md)
+        # Can be one of:
+        # - null
+        # - strict
+        # - permissive
+        ?row_restriction_mode: null
+
         # Whether to use the action column (added to every row). Defaults to true.
         ?use_action_column: true
 

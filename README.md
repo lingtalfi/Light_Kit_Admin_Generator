@@ -96,6 +96,10 @@ az($container->get("kit_admin_generator")->generate($configFile));
 History Log
 =============
 
+- 1.13.1 -- 2020-06-30
+
+    - add log section in conception notes
+    
 - 1.13.0 -- 2020-06-30
 
     - update generator, add log system

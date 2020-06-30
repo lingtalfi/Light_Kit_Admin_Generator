@@ -99,6 +99,8 @@ class MenuConfigGenerator extends LkaGenBaseConfigGenerator
             $items[] = $childItem;
         }
 
+
+        $this->debugLog("Creating bmenu target file in \"" . $this->getSymbolicPath($targetFile) . "\".");
         FileSystemTool::mkfile($targetFile, BabyYamlUtil::getBabyYamlString($items));
     }
 

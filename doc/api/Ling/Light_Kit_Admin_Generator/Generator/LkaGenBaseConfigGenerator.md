@@ -4,7 +4,7 @@
 
 The LkaGenBaseConfigGenerator class
 ================
-2019-11-06 --> 2020-06-30
+2019-11-06 --> 2020-07-02
 
 
 
@@ -81,4 +81,4 @@ See the source code of [Ling\Light_Kit_Admin_Generator\Generator\LkaGenBaseConfi
 
 SeeAlso
 ==============
-Previous class: [DeprecatedRouteGenerator](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Generator/DeprecatedRouteGenerator.md)<br>Next class: [MenuConfigGenerator](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Generator/MenuConfigGenerator.md)<br>
+Previous class: [ControllerGenerator](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Generator/ControllerGenerator.md)<br>Next class: [MenuConfigGenerator](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Generator/MenuConfigGenerator.md)<br>

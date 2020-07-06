@@ -224,13 +224,13 @@ main:
         # The generic_tags (defined in the list option at the root level) are available.
         rows_renderer_types_general:
             avatar_url: $img100
-            action:
+            _action:
                 type: lka-edit_link_hub
                 text: Edit
                 url_params:
                     controller: Generated/{TableClass}Controller
                     m: f
-            checkbox: checkbox
+            _checkbox: checkbox
 
         # Defines rows renderer types to add for a specific table.
         # It has precedence over the rows_renderer_type_general option.

@@ -1,6 +1,6 @@
 Light_Kit_Admin_Generator
 ===========
-2019-11-06 -> 2020-07-02
+2019-11-06 -> 2020-07-03
 
 
 
@@ -96,6 +96,10 @@ az($container->get("kit_admin_generator")->generate($configFile));
 History Log
 =============
 
+- 1.15.0 -- 2020-07-03
+
+    - update generated controller models to adapt new LightKitAdminController->getRedirectResponseByRoute
+    
 - 1.14.0 -- 2020-07-02
 
     - add menu.mode configuration option

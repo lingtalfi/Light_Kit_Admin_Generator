@@ -1,6 +1,6 @@
 Configuration example
 ------------------
-2019-11-06 -> 2020-07-02
+2019-11-06 -> 2020-08-03
 
 
 Below is the file I've used to generate parts of the [Light_Kit_Admin](https://github.com/lingtalfi/Light_Kit_Admin) plugin itself.
@@ -63,6 +63,19 @@ main:
     ?ignore_columns:
         lud_user:
             - password
+    
+    # Bool=true. Whether to generate lists
+    use_list: true
+
+    # Bool=true. Whether to generate forms
+    use_form: true
+
+    # Bool=true. Whether to generate menus
+    use_menu: true
+
+    # Bool=true. Whether to generate controllers
+    use_controller: true
+
 
     # This section defines the behaviour of the list configuration file generator.
     # The term generic tags, used in some of the definitions below, refers to the following array:

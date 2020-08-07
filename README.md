@@ -1,6 +1,6 @@
 Light_Kit_Admin_Generator
 ===========
-2019-11-06 -> 2020-08-03
+2019-11-06 -> 2020-08-07
 
 
 
@@ -96,6 +96,10 @@ az($container->get("kit_admin_generator")->generate($configFile));
 History Log
 =============
 
+- 1.17.0 -- 2020-08-07
+
+    - update generator, now the generated form controller tries late registration first
+    
 - 1.16.0 -- 2020-08-03
 
     - update config, add use_menu and use_controller properties

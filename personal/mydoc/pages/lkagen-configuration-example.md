@@ -1,6 +1,6 @@
 Configuration example
 ------------------
-2019-11-06 -> 2020-08-03
+2019-11-06 -> 2020-08-18
 
 
 Below is the file I've used to generate parts of the [Light_Kit_Admin](https://github.com/lingtalfi/Light_Kit_Admin) plugin itself.
@@ -99,6 +99,13 @@ main:
         # It's an absolute path.
         # The tag {app_dir} can be used, and will be replaced with the actual "application root directory".
         target_dir: {app_dir}/config/data/{$plugin}/Light_Realist/generated
+
+
+        # the base name of the files to generate
+        # the default value is {table}.byml
+        # the available tags are:
+        # - {table}: the name of the table used to generate this list nugget
+        target_basename: {table}.byml
 
         # The title of the list, defaults to:
         # - {Label} list

@@ -78,7 +78,6 @@ class MenuConfigGenerator extends LkaGenBaseConfigGenerator
         $rootChildren = $groups["_"] ?? [];
         unset($groups['_']);
 
-
         // adding prefixed tables
         foreach ($groups as $prefix => $tableInfoItems) {
             $children = [];

@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [MenuConfigGenerator::getTableInfoByConfigBundle](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/Generator/MenuConfigGenerator.php#L143-L203)
+See the source code for method [MenuConfigGenerator::getTableInfoByConfigBundle](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/Generator/MenuConfigGenerator.php#L142-L202)
 
 
 See Also

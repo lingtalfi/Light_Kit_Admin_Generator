@@ -1,6 +1,6 @@
 Ling/Light_Kit_Admin_Generator
 ================
-2019-11-06 --> 2020-08-18
+2019-11-06 --> 2020-09-03
 
 
 
@@ -24,7 +24,8 @@ Table of contents
     - BaseConfigGenerator::setDebugCallable &ndash; Sets the debugCallable.
 - [LightKitAdminGeneratorService](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Service/LightKitAdminGeneratorService.md) &ndash; The LightKitAdminGeneratorService class.
     - LightRealGeneratorService::__construct &ndash; Builds the LightRealGeneratorService instance.
-    - LightRealGeneratorService::generate &ndash; according to the [configuration block](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/pages/lkagen-configuration-example.md) identified by the given file and identifier.
+    - LightRealGeneratorService::generate &ndash; Same as generateByConf method, but takes the file path instead of the array.
+    - LightRealGeneratorService::generateByConf &ndash; according to the [configuration block](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/pages/lkagen-configuration-example.md) identified by the given file and identifier.
     - LightRealGeneratorService::setContainer &ndash; Sets the container.
     - LightRealGeneratorService::setOptions &ndash; Sets the options.
     - LightRealGeneratorService::debugLog &ndash; Sends a message to the debugLog, if the **useDebug** option is set to true.

@@ -1,6 +1,6 @@
 Light_Kit_Admin_Generator
 ===========
-2019-11-06 -> 2020-08-18
+2019-11-06 -> 2020-09-03
 
 
 
@@ -95,6 +95,10 @@ az($container->get("kit_admin_generator")->generate($configFile));
 
 History Log
 =============
+
+- 1.17.2 -- 2020-09-03
+
+    - update lka-configuration-example.md to have the same base as "realgen"'s conf
 
 - 1.17.1 -- 2020-08-18
 

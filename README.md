@@ -1,6 +1,6 @@
 Light_Kit_Admin_Generator
 ===========
-2019-11-06 -> 2020-09-03
+2019-11-06 -> 2020-09-04
 
 
 
@@ -96,6 +96,10 @@ az($container->get("kit_admin_generator")->generate($configFile));
 History Log
 =============
 
+- 1.18.0 -- 2020-09-04
+
+    - update ControllerGenerator, now the default form_identifier_format uses nugget compliant format
+    
 - 1.17.2 -- 2020-09-03
 
     - update lka-configuration-example.md to have the same base as "realgen"'s conf

@@ -1,6 +1,6 @@
 Configuration example
 ------------------
-2019-11-06 -> 2020-09-03
+2019-11-06 -> 2020-09-04
 
 
 Below is the file I've used to generate parts of the [Light_Kit_Admin](https://github.com/lingtalfi/Light_Kit_Admin) plugin itself.
@@ -594,7 +594,7 @@ controller: []
         # The form identifier to call to process the form when the form page is rendered
         # The default value is:
         #   Light_Kit_Admin.generated/{table}
-        form_identifier_format: '{$plugin}.generated/{table}'
+        form_identifier_format: '{$plugin}:generated/{table}'
 
         # The kit page to call when rendering the form
         # The default value is:

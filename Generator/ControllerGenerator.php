@@ -58,7 +58,7 @@ class ControllerGenerator extends LkaGenBaseConfigGenerator
 
         $requestDeclarationIdFmt = $controllerVars['realist_request_declaration_id_format'] ?? 'Light_Kit_Admin:generated/{table}';
         $listPageFmt = $controllerVars['list_page_format'] ?? 'Light_Kit_Admin/kit/zeroadmin/generated/{table}_list';
-        $formIdentifierFmt = $controllerVars['form_identifier_format'] ?? 'Light_Kit_Admin.generated/{table}';
+        $formIdentifierFmt = $controllerVars['form_identifier_format'] ?? 'Light_Kit_Admin:generated/{table}';
         $formPageFmt = $controllerVars['form_page_format'] ?? 'Light_Kit_Admin/kit/zeroadmin/generated/{table}_form';
         $formConfigPathFmt = $controllerVars['form_config_path_format'] ?? 'config/data/Light_Kit_Admin/kit/zeroadmin/generated/{table}_form.byml';
         $listConfigPathFmt = $controllerVars['list_config_path_format'] ?? 'config/data/Light_Kit_Admin/kit/zeroadmin/generated/{table}_list.byml';

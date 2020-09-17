@@ -6,7 +6,6 @@ namespace TheNamespace;
 
 use Ling\Light\Http\HttpResponseInterface;
 use Ling\Light_Kit\PageConfigurationUpdator\PageConfUpdator;
-use Ling\Light_UserRowRestriction\Service\LightUserRowRestrictionService;
 //->use
 
 
@@ -40,23 +39,12 @@ class TheController extends TheBaseController
      */
     public function renderForm()
     {
-
-        $table = "{table}";
         $identifier = "{form_identifier}";
-
-        $this->lateRealFormRegistration($identifier);
-
         $parentLayout = "Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_base";
         $vars = [
             "title" => "{formTitle}",
         ];
-        if (array_key_exists("solo", $_GET)) {
-            $parentLayout = "Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_solo";
-            $vars['related_links'] = []; // cancel any existing related links
-            $this->setOnSuccessIframeSignal("done");
-        }
-
-        $res = $this->processForm($identifier, $table);
+        $res = $this->processForm($identifier);
 
         if ($res instanceof HttpResponseInterface) {
             return $res;

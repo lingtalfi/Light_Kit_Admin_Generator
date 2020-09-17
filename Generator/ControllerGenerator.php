@@ -7,6 +7,7 @@ use Ling\BabyYaml\BabyYamlUtil;
 use Ling\Bat\CaseTool;
 use Ling\Bat\FileSystemTool;
 use Ling\Bat\StringTool;
+use Ling\Light_Kit_Admin\Controller\RealAdminPageController;
 
 /**
  * The ControllerGenerator class.
@@ -221,29 +222,32 @@ class ControllerGenerator extends LkaGenBaseConfigGenerator
         //--------------------------------------------
         // CREATING BASE CONTROLLER
         //--------------------------------------------
-        $p = explode('\\', $baseControllerClassName);
-        $baseControllerShortClassName = array_pop($p);
-        $baseControllerNamespace = implode('\\', $p);
-
-
-        $p = explode('\\', $parentController);
-        $parentControllerShortClassName = array_pop($p);
-        $parentControllerNamespace = implode('\\', $p);
-        $sUse = '';
-        if ($parentControllerNamespace !== $baseControllerNamespace) {
-            $sUse = "use $parentController;" . PHP_EOL;
-        }
-
-        $tplBaseController = str_replace('TheNamespace', $baseControllerNamespace, $tplBaseController);
-        $tplBaseController = str_replace('//->use', $sUse, $tplBaseController);
-        $tplBaseController = str_replace('TheBaseController', $baseControllerShortClassName, $tplBaseController);
-        $tplBaseController = str_replace('TheParentController', $parentControllerShortClassName, $tplBaseController);
-
-
-        $f = $classRootDir . "/" . str_replace('\\', '/', $baseControllerClassName) . ".php";
-
-        FileSystemTool::mkfile($f, $tplBaseController);
-        $this->debugLog("Creating BaseController in \"". $this->getSymbolicPath($f) ."\".");
+        /**
+         * deprecated, we extend RealAdminPageController now...
+         */
+//        $p = explode('\\', $baseControllerClassName);
+//        $baseControllerShortClassName = array_pop($p);
+//        $baseControllerNamespace = implode('\\', $p);
+//
+//
+//        $p = explode('\\', $parentController);
+//        $parentControllerShortClassName = array_pop($p);
+//        $parentControllerNamespace = implode('\\', $p);
+//        $sUse = '';
+//        if ($parentControllerNamespace !== $baseControllerNamespace) {
+//            $sUse = "use $parentController;" . PHP_EOL;
+//        }
+//
+//        $tplBaseController = str_replace('TheNamespace', $baseControllerNamespace, $tplBaseController);
+//        $tplBaseController = str_replace('//->use', $sUse, $tplBaseController);
+//        $tplBaseController = str_replace('TheBaseController', $baseControllerShortClassName, $tplBaseController);
+//        $tplBaseController = str_replace('TheParentController', $parentControllerShortClassName, $tplBaseController);
+//
+//
+//        $f = $classRootDir . "/" . str_replace('\\', '/', $baseControllerClassName) . ".php";
+//
+//        FileSystemTool::mkfile($f, $tplBaseController);
+//        $this->debugLog("Creating BaseController in \"". $this->getSymbolicPath($f) ."\".");
     }
 
 

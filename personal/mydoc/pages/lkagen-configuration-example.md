@@ -123,15 +123,6 @@ list:
     # dynamic values.
     title: {Label} list
 
-    # Bool=true, whether to add the use_micro_permission setting in the request declaration.
-    # See the miscellaneous section of the realist conception notes for more details:
-    # https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/realist-conception-notes.md#miscellaneous
-    ?use_micro_permission: true
-
-
-    # Whether to use the row restriction system https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/doc/pages/conception-notes.md.
-    # The default value is false.
-    ?use_row_restriction: false
 
     # When executing the stmt request and there is an error: whether to show the query/markers information along with the
     # error message (true), or just display the error message (false, by default)
@@ -317,17 +308,6 @@ form:
     # This property is provided by Light_Kit_Admin_Generator (i.e. not in Light_RealGenerator).
     use_link_to_list: true
 
-    # An array, empty by default, which can contain the row restriction to apply. The possible options are:
-    # - read
-    # - update
-    #
-    # Note: regular forms usually delegate the process of the form info to the RealformSuccessHandlerInterface,
-    # which uses its own row restriction (see the on_success_handler property in this section for more details).
-    # The "update" option here applies for potential external tools, such as an external multiple rows form editor for instance.
-    #
-    ?row_restriction: []
-#            - read
-#            - update
 
 
     # This array let you ignore/skip columns that you want to exclude from the generated form config file.
@@ -336,28 +316,6 @@ form:
     ?ignore_columns:
         lud_user:
             - password
-
-    # Overrides the default form handler class (which defaults to a plain Chloroform instance) for all tables,
-    # unless a more specific override has been defined with the form_handler_class_specific option (in
-    # which case the more specific override is used).
-    # It's a string representing the class to use.
-    ?form_handler_class_general: My\Class
-    # Overrides the default form handler class (which defaults to a plain Chloroform instance) for a given table.
-    # It's an array of table => class.
-    ?form_handler_class_specific:
-        lud_user: My\Specific\Class
-
-    # An array of variables that we can use in some parts of the form generator configuration:
-    # - fields
-    # - fields_merge_aliases
-    # - fields_merge_specific
-    # The variable notation is: {variable}.
-    # Apart from the variables defined here, we also provide the following dynamic variables:
-    # - table: the name of the current table
-    # - field: the name of the current field (or empty string if not available)
-    variables:
-        plugin_prefix: lka
-
 
     # Overrides completely or partially the fields items.
     # It's an array of table => fieldItems, with fieldItems being an array of fieldName => fieldItem.
@@ -642,7 +600,7 @@ controller: []
     ?custom_controller_classname: Ling\{$plugin}\Controller\Generated\Custom\Custom{Table}Controller
 
     # The class name of the base controller to generate.
-    base_controller_classname: Ling\{$plugin}\Controller\Generated\Base\RealGenController
+    base_controller_classname: Ling\Light_Kit_Admin\Controller\RealAdminPageController
 
     # The class name of the parent controller, which all other classes derive from.
     parent_controller: Ling\{$plugin}\Controller\AdminPageController

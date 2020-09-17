@@ -1,6 +1,6 @@
 Light_Kit_Admin_Generator
 ===========
-2019-11-06 -> 2020-09-04
+2019-11-06 -> 2020-09-17
 
 
 
@@ -96,6 +96,10 @@ az($container->get("kit_admin_generator")->generate($configFile));
 History Log
 =============
 
+- 1.19.0 -- 2020-09-17
+
+    - update api to adapt new Realist and Realform apis
+    
 - 1.18.0 -- 2020-09-04
 
     - update ControllerGenerator, now the default form_identifier_format uses nugget compliant format

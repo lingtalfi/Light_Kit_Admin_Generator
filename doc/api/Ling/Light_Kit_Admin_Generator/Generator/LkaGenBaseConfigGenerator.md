@@ -4,7 +4,7 @@
 
 The LkaGenBaseConfigGenerator class
 ================
-2019-11-06 --> 2020-09-04
+2019-11-06 --> 2020-09-17
 
 
 
@@ -45,6 +45,7 @@ class <span class="pl-k">LkaGenBaseConfigGenerator</span> extends [BaseConfigGen
     - protected BaseConfigGenerator::getTableWithoutPrefix(string $table) : string
     - protected BaseConfigGenerator::isHasTable(string $table) : bool
     - protected BaseConfigGenerator::getTableInfo(string $table) : array
+    - protected BaseConfigGenerator::getHumanTableName(string $table) : string
 
 }
 
@@ -69,6 +70,7 @@ Methods
 - BaseConfigGenerator::getTableWithoutPrefix &ndash; Returns the table name without prefix.
 - BaseConfigGenerator::isHasTable &ndash; Returns whether the given table is a **has** table (aka a many to many table, such as user_has_permission for instance).
 - BaseConfigGenerator::getTableInfo &ndash; Returns the tableInfo array, either from the createFile, or from the database, depending on the configuration.
+- BaseConfigGenerator::getHumanTableName &ndash; Returns the human version of the given table name.
 
 
 

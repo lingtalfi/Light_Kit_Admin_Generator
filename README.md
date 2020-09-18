@@ -96,6 +96,10 @@ az($container->get("kit_admin_generator")->generate($configFile));
 History Log
 =============
 
+- 1.19.2 -- 2020-09-18
+
+    - update config example
+    
 - 1.19.1 -- 2020-09-18
 
     - update config example

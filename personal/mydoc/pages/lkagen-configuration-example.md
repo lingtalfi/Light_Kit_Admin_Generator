@@ -364,6 +364,27 @@ form:
             avatar_url: $ajax1
 
 
+    # An array to handle some special fields automatically.
+    # It's an array of section => parameters.
+    special_fields:
+        # The chloroform_extensions section.
+        # All fields coming from the Light_ChloroformExtension plugin should be handled there.
+        # -> https://github.com/lingtalfi/Light_ChloroformExtension
+        #
+        chloroform_extensions:
+            # Bool, whether to use table list on foreign keys.
+            # The default value is true.
+            # When true, if a field is a foreign key we will generate the configuration for a table list field (https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/pages/conception-notes.md#tablelistfield).
+            use_table_list: true
+
+
+            # Array, the security directive to use with the table list(s).
+            # See the [Light_Nugget baked in security system](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/pages/conception-notes.md#a-baked-in-security-system-for-nugget-users) for more details.
+            table_list_security:
+                any:
+                    permission: Light_Kit_Admin.admin
+
+
     # An array of table => notRequiredFields, with notRequiredFields being an array of the fields for which you don't
     # want a required validator to be set automatically.
     ?not_required:

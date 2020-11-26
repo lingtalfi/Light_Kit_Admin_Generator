@@ -47,7 +47,7 @@ class ControllerGenerator extends LkaGenBaseConfigGenerator
         $parentController = $this->getKeyValue("controller.parent_controller");
         $controllerVars = $this->getKeyValue("controller.controller_vars");
         $formTitle = $this->getKeyValue("form.title", false, "{Label} form");
-        $formUseLinkToList = $this->getKeyValue("form.use_link_to_list", false, true);
+
 
         //--------------------------------------------
         $tplController = file_get_contents(__DIR__ . "/../assets/models/classes/controller.php.tpl");
@@ -63,7 +63,7 @@ class ControllerGenerator extends LkaGenBaseConfigGenerator
         $formPageFmt = $controllerVars['form_page_format'] ?? 'Light_Kit_Admin/kit/zeroadmin/generated/{table}_form';
         $formConfigPathFmt = $controllerVars['form_config_path_format'] ?? 'config/data/Light_Kit_Admin/kit/zeroadmin/generated/{table}_form.byml';
         $listConfigPathFmt = $controllerVars['list_config_path_format'] ?? 'config/data/Light_Kit_Admin/kit/zeroadmin/generated/{table}_list.byml';
-        $formPageRelatedLinks = $controllerVars['form_page_related_links'] ?? null;
+
 
 
         foreach ($tables as $table) {
@@ -183,24 +183,9 @@ class ControllerGenerator extends LkaGenBaseConfigGenerator
             /**
              * So far, we are using hardcoded paths, works fine.
              */
-            $sRelatedLinks = '';
-            if (true === $formUseLinkToList) {
-                if (null === $formPageRelatedLinks) {
-                    $formPageRelatedLinks = [
-                        [
-                            'text' => 'See the list of "{TableLabel}" items',
-                            'url' => '(::ROUTE::)lch_route-hub::{plugin: Light_Kit_Admin, controller: Generated/{Table}Controller}',
-                            'icon' => 'fas fa-plus-circle',
-                        ],
-                    ];
-                }
-
-                $sRelatedLinks = StringTool::indent(PHP_EOL . BabyYamlUtil::getBabyYamlString($formPageRelatedLinks), 20);
-            }
-
             $kitTags = [
                 // put the related links first, as they can use the following tags, this is just for form though (lazy me...)
-                '{relatedLinks}' => $sRelatedLinks,
+//                '{relatedLinks}' => $sRelatedLinks,
                 '{tableLabel}' => $tableLabel,
                 '{TableLabel}' => $TableLabel,
                 '{Table}' => $Table,

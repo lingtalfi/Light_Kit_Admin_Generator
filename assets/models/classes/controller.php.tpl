@@ -39,12 +39,9 @@ class TheController extends TheBaseController
      */
     public function renderForm()
     {
-        $identifier = "{form_identifier}";
-        $parentLayout = "Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_base";
-        $vars = [
-            "title" => "{formTitle}",
-        ];
-        $res = $this->processForm($identifier);
+        $realformId = "{form_identifier}";
+        $nugget = [];
+        $res = $this->processForm($realformId, $nugget);
 
         if ($res instanceof HttpResponseInterface) {
             return $res;
@@ -56,10 +53,10 @@ class TheController extends TheBaseController
         // RENDERING
         //--------------------------------------------
         return $this->renderAdminPage('{form_page}', [
-            "parent_layout" => $parentLayout,
+            "parent_layout" => "Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_base",
             "form" => $form,
         ], PageConfUpdator::create()->updateWidget("body.lka_chloroform", [
-            'vars' => $vars,
+            'vars' => $nugget["rendering"],
         ]));
     }
 }

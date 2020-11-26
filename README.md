@@ -1,6 +1,6 @@
 Light_Kit_Admin_Generator
 ===========
-2019-11-06 -> 2020-09-18
+2019-11-06 -> 2020-09-26
 
 
 
@@ -96,6 +96,10 @@ az($container->get("kit_admin_generator")->generate($configFile));
 History Log
 =============
 
+- 1.19.4 -- 2020-09-26
+
+    - update config example
+    
 - 1.19.3 -- 2020-09-18
 
     - update config example

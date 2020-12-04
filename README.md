@@ -96,6 +96,10 @@ az($container->get("kit_admin_generator")->generate($configFile));
 History Log
 =============
 
+- 1.19.6 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.19.5 -- 2020-12-01
 
     - add LightKitAdminListConfigGenerator class

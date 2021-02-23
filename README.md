@@ -96,6 +96,10 @@ az($container->get("kit_admin_generator")->generate($configFile));
 History Log
 =============
 
+- 1.19.8 -- 2021-02-23
+
+    - Update dependencies
+
 - 1.19.7 -- 2020-12-08
 
     - Fix lpi-deps not using natsort.

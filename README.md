@@ -96,6 +96,14 @@ az($container->get("kit_admin_generator")->generate($configFile));
 History Log
 =============
 
+- 1.19.9 -- 2021-02-23
+
+    - Update dependencies (pushed by SubscribersUtil)
+
+- 1.19.8 -- 2021-02-23
+
+    - Update dependencies (pushed by SubscribersUtil)
+
 - 1.19.8 -- 2021-02-23
 
     - Update dependencies

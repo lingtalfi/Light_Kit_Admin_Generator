@@ -387,3 +387,13 @@
     - Ling:Light_TablePrefixInfo:1.0.2+
     - Ling:SqlWizard:1.13.7+
     - Ling:UniverseTools:1.22.27+
+
+1.19.11: 
+    - Ling:BabyYaml:1.7.7+
+    - Ling:Bat:1.307+
+    - Ling:Light_ControllerHub:1.2.11+
+    - Ling:Light_Kit_Admin:0.12.18+
+    - Ling:Light_RealGenerator:1.31.15+
+    - Ling:Light_TablePrefixInfo:1.0.2+
+    - Ling:SqlWizard:1.13.7+
+    - Ling:UniverseTools:1.22.29+

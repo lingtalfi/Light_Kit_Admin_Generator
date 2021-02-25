@@ -1,6 +1,6 @@
 Light_Kit_Admin_Generator
 ===========
-2019-11-06 -> 2020-12-01
+2019-11-06 -> 2021-02-25
 
 
 
@@ -96,6 +96,10 @@ az($container->get("kit_admin_generator")->generate($configFile));
 History Log
 =============
 
+- 1.19.11 -- 2021-02-25
+
+    - fix assets/map accidentally removed
+  
 - 1.19.10 -- 2021-02-23
 
     - Update dependencies (pushed by SubscribersUtil)

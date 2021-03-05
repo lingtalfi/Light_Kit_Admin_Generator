@@ -1,6 +1,6 @@
 Light_Kit_Admin_Generator
 ===========
-2019-11-06 -> 2021-02-25
+2019-11-06 -> 2021-03-05
 
 
 
@@ -13,6 +13,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Light_Kit_Admin_Generator
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/Light_Kit_Admin_Generator
@@ -95,6 +100,10 @@ az($container->get("kit_admin_generator")->generate($configFile));
 
 History Log
 =============
+
+- 1.19.12 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.19.11 -- 2021-02-25
 

@@ -6,7 +6,7 @@ zones:
             name: lka_chloroform
             type: picasso
             className: Ling\Light_Kit_Admin\Widget\Picasso\LightKitAdminChloroformWidget
-            widgetDir: templates/Light_Kit_Admin/widgets/picasso/LightKitAdminChloroformWidget
+            widgetDir: templates/Ling.Light_Kit_Admin/widgets/picasso/LightKitAdminChloroformWidget
             template: default.php
             vars: []
                 title: ${rendering.title}

@@ -1,6 +1,6 @@
 Light_Kit_Admin_Generator
 ===========
-2019-11-06 -> 2021-03-05
+2019-11-06 -> 2021-03-09
 
 
 
@@ -101,6 +101,10 @@ az($container->get("kit_admin_generator")->generate($configFile));
 History Log
 =============
 
+- 1.19.13 -- 2021-03-09
+
+    - update planet to adapt Ling.Light_Kit_Admin:0.12.25
+  
 - 1.19.12 -- 2021-03-05
 
     - update README.md, add install alternative

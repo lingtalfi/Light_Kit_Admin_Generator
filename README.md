@@ -101,6 +101,10 @@ az($container->get("kit_admin_generator")->generate($configFile));
 History Log
 =============
 
+- 1.19.15 -- 2021-05-11
+
+    - Update deps (by CommitWizard).
+
 - 1.19.14 -- 2021-03-15
 
     - update planet to adapt Ling.Light:0.70.0

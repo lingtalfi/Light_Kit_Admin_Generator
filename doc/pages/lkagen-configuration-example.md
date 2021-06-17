@@ -280,8 +280,7 @@ list:
                     text: Edit
                     url_params_add_ric: true
                     url_params:
-                        plugin: !{galaxyName}/!{plugin}
-                        controller: Generated/{TableClass}Controller
+                        execute: !{galaxyName}\!{plugin}\Controller\Generated\{TableClass}Controller->renderList
                         m: f
                     icon: fas fa-edit
 
@@ -341,7 +340,7 @@ list:
     related_links:
         -
             text: Add new "{label}" item
-            url: REALIST(Light_Realist, route, lch_route-hub, {plugin: !{galaxyName}/!{plugin}, controller: Generated/{TableClass}Controller, m:f})
+            url: REALIST(Light_Realist, route, lch_route-hub, {execute: !{galaxyName}\!{plugin}\Controller\Generated\{TableClass}Controller->renderForm, m:f})
             icon: fas fa-plus-circle
 
 # This section defines the behaviour of the form configuration file generator
@@ -710,7 +709,7 @@ controller: []
         form_page_related_links:
             -
                 text: See the list of "{TableLabel}" items
-                url: ::(@reverse_router->getUrl(lch_route-hub, {plugin: !{galaxyName}/!{plugin}, controller: Generated/{Table}Controller}))::
+                url: ::(@reverse_router->getUrl(lch_route-hub, {execute: !{galaxyName}\!{plugin}\Controller\Generated\{Table}Controller->renderList}))::
                 icon: fas fa-plus-circle
 
 

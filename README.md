@@ -101,6 +101,10 @@ az($container->get("kit_admin_generator")->generate($configFile));
 History Log
 =============
 
+- 1.19.18 -- 2021-06-17
+
+    - update lkagen configuration example
+  
 - 1.19.17 -- 2021-06-17
 
     - update api, generated bmenu links now use modern Light_ControllerHub system

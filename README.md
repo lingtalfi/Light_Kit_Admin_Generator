@@ -1,6 +1,6 @@
 Light_Kit_Admin_Generator
 ===========
-2019-11-06 -> 2021-03-15
+2019-11-06 -> 2021-06-17
 
 
 
@@ -101,6 +101,10 @@ az($container->get("kit_admin_generator")->generate($configFile));
 History Log
 =============
 
+- 1.19.17 -- 2021-06-17
+
+    - update api, generated bmenu links now use modern Light_ControllerHub system
+  
 - 1.19.16 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

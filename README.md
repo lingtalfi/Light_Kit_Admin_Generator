@@ -101,6 +101,10 @@ az($container->get("kit_admin_generator")->generate($configFile));
 History Log
 =============
 
+- 1.19.19 -- 2021-06-17
+
+    - fix typo (render instead of renderList/renderForm)
+  
 - 1.19.18 -- 2021-06-17
 
     - update lkagen configuration example

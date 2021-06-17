@@ -194,7 +194,7 @@ class MenuConfigGenerator extends LkaGenBaseConfigGenerator
             'text' => $defaultLabel,
             'route' => $hubs->getRouteName(),
             'route_url_params' => [
-                "execute" => "$galaxy\\$menuPlugin\\Controller\\$controller" . "->renderList",
+                "execute" => "$galaxy\\$menuPlugin\\Controller\\$controller" . "->render",
 //                "plugin" => $galaxy . "/" . $menuPlugin, // using the planetId
 //                "controller" => $controller,
             ],

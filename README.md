@@ -101,6 +101,10 @@ az($container->get("kit_admin_generator")->generate($configFile));
 History Log
 =============
 
+- 1.19.21 -- 2021-06-18
+
+    - update conf example and fix typos to be compliant with Ling.Light_Kit_Admin:0.13.0
+  
 - 1.19.20 -- 2021-06-18
 
     - update api to work with Ling.Light_Kit_Admin:0.13.0

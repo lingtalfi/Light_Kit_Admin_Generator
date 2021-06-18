@@ -1,10 +1,10 @@
 Light_Kit_Admin_Generator
 ===========
-2019-11-06 -> 2021-06-17
+2019-11-06 -> 2021-06-18
 
 
 
-A plugin to help creating an auto-admin in [Light_Kit_Admin](https://github.com/lingtalfi/Light_Kit_Admin). 
+A plugin to help create an auto-admin in [Light_Kit_Admin](https://github.com/lingtalfi/Light_Kit_Admin). 
 
 This is a [Light plugin](https://github.com/lingtalfi/Light/blob/master/doc/pages/plugin.md).
 
@@ -101,6 +101,10 @@ az($container->get("kit_admin_generator")->generate($configFile));
 History Log
 =============
 
+- 1.19.20 -- 2021-06-18
+
+    - update api to work with Ling.Light_Kit_Admin:0.13.0
+  
 - 1.19.19 -- 2021-06-17
 
     - fix typo (render instead of renderList/renderForm)

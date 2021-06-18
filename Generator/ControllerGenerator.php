@@ -73,8 +73,8 @@ class ControllerGenerator extends LkaGenBaseConfigGenerator
         $listPageFmt = $controllerVars['list_page_format'] ?? $galaxyName . '.' . $planetName . '/generated/{table}_list';
         $formIdentifierFmt = $controllerVars['form_identifier_format'] ?? 'Ling.Light_Kit_Admin:generated/{table}';
         $formPageFmt = $controllerVars['form_page_format'] ?? 'Ling.Light_Kit_Admin/Ling.Light_Kit/zeroadmin/generated/{table}_form';
-        $formConfigPathFmt = $controllerVars['form_config_path_format'] ?? "config/open/Ling.Light_Kit_Admin/lke/pages/$galaxyName.$planetName/generated/{table}_form.byml";
-        $listConfigPathFmt = $controllerVars['list_config_path_format'] ?? "config/open/Ling.Light_Kit_Admin/lke/pages/$galaxyName.$planetName/generated/{table}_list.byml";
+        $formConfigPathFmt = $controllerVars['form_config_path_format'] ?? "config/open/Ling.Light_Kit_Admin/Ling.Light_Kit_Editor/admin/pages/$galaxyName.$planetName/generated/{table}_form.byml";
+        $listConfigPathFmt = $controllerVars['list_config_path_format'] ?? "config/open/Ling.Light_Kit_Admin/Ling.Light_Kit_Editor/admin/pages/$galaxyName.$planetName/generated/{table}_list.byml";
 
 
         foreach ($tables as $table) {

@@ -4,7 +4,7 @@ description: <
 >
 
 
-layout: config/open/Ling.Light_Kit_Admin/Ling.Light_Kit_Editor/admin/layouts/$t/main_layout.php
+layout: $root/layouts/$t/main_layout.php
 layout_vars: []
 
 

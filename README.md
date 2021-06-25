@@ -1,6 +1,6 @@
 Light_Kit_Admin_Generator
 ===========
-2019-11-06 -> 2021-06-18
+2019-11-06 -> 2021-06-25
 
 
 
@@ -67,20 +67,6 @@ kit_admin_generator:
                 useDebug: true                          # default is false
                 debugLogChannel: lka_generator.debug   # default is real_generator.debug
 
-# --------------------------------------
-# hooks
-# --------------------------------------
-$logger.methods_collection:
-    -
-        method: addListener
-        args:
-            channels: lka_generator.debug
-            listener:
-                instance: Ling\Light_Logger\Listener\LightCleanableFileLoggerListener
-                methods:
-                    configure:
-                        options:
-                            file: ${app_dir}/log/lka_generator_debug.txt
 
 ```
 
@@ -100,6 +86,10 @@ az($container->get("kit_admin_generator")->generate($configFile));
 
 History Log
 =============
+
+- 1.19.22 -- 2021-06-25
+
+    - update api, now use Ling.Light_Logger open registration system
 
 - 1.19.21 -- 2021-06-18
 
